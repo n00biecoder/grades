@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+    body{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        background-color:whitesmoke;
+        margin: 30px;
+        padding: 60px;
+        
+    }
+    input {
+    margin: 0.8rem;
+    margin-left: 37rem;
+    border-radius: 3px;
+    width: 250px;
+    height: 30px;
+    padding:0.4rem;
+    border: 1px solid lawngreen;
+    }
+     .heading{
+         margin-left: 300px;
+         font-size: 200%;
+         color: white;
+     }
+    .app-form{
+        padding: 20px;
+        margin-left:200px; 
+        margin-top:80px;
+        border-radius: 8px;
+        margin-right:200px;
+        height: 500px;
+        box-shadow: 10px 5px 10px grey;
+        background-color:rgb(91, 247, 91);
+        opacity: 0.9;
+    }
+
+    </style>
+</head>
+<body>
+   
+    <div class="app-form">
+        <div class="heading">
+            <h1>
+                RESULT</h1>
+        </div>
+        <div class="app-form-group">
+            <input type="text" class="app-form-control" placeholder="WEB PROGRAMMING" id="wd">
+
+        </div>
+        <div class="app-form-group">
+            <input type="text" class="app-form-control" placeholder="MATHS" id="maths">
+        </div>
+        <div class="app-form-group">
+            <input type="text" class="app-form-control" placeholder="COMPUTER" id="comp">
+        </div>
+        <div class="app-form-group">
+            <input type="text" class="app-form-control" placeholder="PHYSICS" id="phy">
+        </div>
+        <div>
+            <input type="button" name="" value="showPercentage" class="app-form-button" onclick="calcy()">
+        </div>
+        <div class="app-form-group-showdata">
+            <p id="showData"> </p>
+        </div>
+    </div>
+
+   
+
+    <script type="text/javascript">
+    
+        const calcy = () =>{
+            let wd = document.getElementById('wd').value;
+            let maths = document.getElementById('maths').value;
+            let comp = document.getElementById('comp').value;
+            let phy = document.getElementById('phy').value;
+            let grades = "";
+            let totalGrades = parseFloat(wd) + parseFloat(maths) + parseFloat(comp) + parseFloat(phy);
+           // alert(totalGrades);
+
+            let perc = (totalGrades/400) * 100;
+           // alert(perc);
+
+            if(perc <= 100 && perc >=90){
+               grades = 'A';
+            }else if(perc < 90 && perc >=80){
+                grades = 'B';
+            }
+            else if(perc < 80 && perc >= 70){
+                grades = 'C';
+            }else{
+                grades = 'D';
+            }
+document.getElementById('showData').innerHTML = `out of 400 your total is ${totalGrades} and percentage is ${perc}%. <br>
+your grade is ${grades}.`
+
+        }
+    </script>
+
+
+</body>
+</html>
